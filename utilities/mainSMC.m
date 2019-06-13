@@ -10,7 +10,7 @@ dtSys = c2d(ctSys,Ts);
 
 % Sliding surface in DT: s(k) = c'*x_tilde = 0
 % x_tilde = [ th_ref(k) - th(k); q_ref(k) - q(k) ]
-c = [ 0.5; 1 ];
+c = [ 1e-6; 1 ];
 % -----------------------------CONTROL LAW---------------------------------
 % u(k) = -inv(c'*Bdt)*(c'*Adt)*x_tilde(k)
 
