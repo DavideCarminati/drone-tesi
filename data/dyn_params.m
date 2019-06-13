@@ -1,5 +1,5 @@
 %% Script for plant dynamics
-
+clear
 %% Data from SolidWorks model 
 
 % global m g Kt Kq l <-- SOLVE GLOBAL VARIABLE ISSUE!!
