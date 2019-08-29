@@ -1,8 +1,5 @@
 %% Script for plant dynamics
-clear
-set(groot,'defaulttextinterpreter','latex');  
-set(groot, 'defaultAxesTickLabelInterpreter','latex');  
-set(groot, 'defaultLegendInterpreter','latex');
+
 %% Data from SolidWorks model 
 
 % global m g Kt Kq l <-- SOLVE GLOBAL VARIABLE ISSUE!!

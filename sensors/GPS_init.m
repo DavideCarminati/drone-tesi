@@ -1,4 +1,4 @@
-% GPS initialization file 
+% GPS initialization file (in realtà dell'otus!)
 % Simulation based on ublox NEO-7N-0-002 sensor (GPS antenna for Pixhawk)
 %
 % -------------------------------------------------------------------------

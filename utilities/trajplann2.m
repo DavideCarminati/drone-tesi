@@ -1,7 +1,7 @@
 function [nedPos,nedVel,psiRef] = trajplann2(wpt,head,noPoints)
 
 % Escludere gli if se i waypoints consecutivi sono uguali!!! OK!
-% Aggiungere profilo velocità anche per lo yaw!!
+% Aggiungere profilo velocità anche per lo yaw!! forse non possibile...
 
 % REMEMBER TO ADD MORE EQUAL WAYPOINTS TO FORCE THE TRAJECTORY FROM THERE!
 n = size(wpt,1);
@@ -11,7 +11,6 @@ nedVel = [];
 nedVelx = [];
 nedVely = [];
 nedVelz = [];
-%nedVel_old = [];
 maxVel = 2;%3;
 riseFall = 1;%0.2; in meters
 for ii = 1:n-1
@@ -105,9 +104,5 @@ end
 nedVel = [ nedVelx, nedVely, nedVelz ];
 end
 
-% nedVel(end+1:end+noPoints,2) = ...
-%             [ linspace(0,0.2/midPointx*3,noPoints/2)';...
-%             linspace(0.2/midPointx*3,0,noPoints/2)' ];
-%         nedVel(end+1:end+noPoints,3) = ...
-%             [ linspace(0,0.2/midPointx*3,noPoints/2)';  
-%             linspace(0.2/midPointx*3,0,noPoints/2)' ];
+
+
