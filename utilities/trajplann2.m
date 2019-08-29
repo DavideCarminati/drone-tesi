@@ -1,6 +1,9 @@
 function [nedPos,nedVel,psiRef] = trajplann2(wpt,head,noPoints)
 
 % Escludere gli if se i waypoints consecutivi sono uguali!!! OK!
+% Aggiungere profilo velocità anche per lo yaw!!
+
+% REMEMBER TO ADD MORE EQUAL WAYPOINTS TO FORCE THE TRAJECTORY FROM THERE!
 n = size(wpt,1);
 nedPos = [];
 psiRef = [];
@@ -10,7 +13,7 @@ nedVely = [];
 nedVelz = [];
 %nedVel_old = [];
 maxVel = 2;%3;
-riseFall = 1;%0.2;
+riseFall = 1;%0.2; in meters
 for ii = 1:n-1
 %% Creating points in the NED frame...
     nedPos(end+1:end+noPoints,:) = ...
@@ -43,10 +46,10 @@ for ii = 1:n-1
         upPoints = noPoints - risePoints - fallPoints;
         nedVel_temp(1:risePoints,1) = ...
             linspace(0,sign(delta_x)*maxVel,risePoints);
-%         nedVel_temp(upPoints+risePoints+1:end,1) = ...
-%             linspace(sign(delta_x)*maxVel,0,fallPoints)';
         nedVel_temp(upPoints+risePoints+1:end,1) = ...
-            sign(delta_x)*logspace(log10(maxVel),log10(1e-6),fallPoints)';
+            linspace(sign(delta_x)*maxVel,0,fallPoints)';
+%         nedVel_temp(upPoints+risePoints+1:end,1) = ...
+%             sign(delta_x)*logspace(log10(maxVel),log10(1e-6),fallPoints)';
         nedVelx = [ nedVelx; nedVel_temp ];
     end
     % Y dimension
@@ -67,10 +70,10 @@ for ii = 1:n-1
         upPoints = noPoints - risePoints - fallPoints;
         nedVel_temp(1:risePoints,1) = ...
             linspace(0,sign(delta_y)*maxVel,risePoints);
-%         nedVel_temp(upPoints+risePoints+1:end,1) = ...
-%             linspace(sign(delta_y)*maxVel,0,fallPoints)';
         nedVel_temp(upPoints+risePoints+1:end,1) = ...
-            sign(delta_y)*logspace(log10(maxVel),log10(1e-6),fallPoints)';
+            linspace(sign(delta_y)*maxVel,0,fallPoints)';
+%         nedVel_temp(upPoints+risePoints+1:end,1) = ...
+%             sign(delta_y)*logspace(log10(maxVel),log10(1e-6),fallPoints)';
         nedVely = [ nedVely; nedVel_temp ];
     end
     % Z dimension
@@ -91,10 +94,10 @@ for ii = 1:n-1
         upPoints = noPoints - risePoints - fallPoints;
         nedVel_temp(1:risePoints,1) = ...
             linspace(0,sign(delta_z)*maxVel,risePoints);
-%         nedVel_temp(upPoints+risePoints+1:end,1) = ...
-%             linspace(sign(delta_z)*maxVel,0,fallPoints)';
         nedVel_temp(upPoints+risePoints+1:end,1) = ...
-            sign(delta_z)*logspace(log10(maxVel),log10(1e-6),fallPoints)';
+            linspace(sign(delta_z)*maxVel,0,fallPoints)';
+%         nedVel_temp(upPoints+risePoints+1:end,1) = ...
+%             sign(delta_z)*logspace(log10(maxVel),log10(1e-6),fallPoints)';
         nedVelz = [ nedVelz; nedVel_temp ];
     end
 

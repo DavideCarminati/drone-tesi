@@ -10,7 +10,7 @@
 %
 % -------------------------------------------------------------------------
 %
-Ts              = 1e-3;       % Simulation time step 
+% Ts              = 1e-3;       % Simulation time step 
 realSensorBaro  = 1;          % Set this flag to 1 for real sensor simulation
                               % Bias, noise, scale factor, misalignment 
 %--------------------------------------------------------------------------
@@ -32,3 +32,9 @@ bar_var = 10;                       % variance
 %
 % Barometer full scale
 baro_fullscale = 4800e3;             % [Pa]
+%
+%
+p0 = 101325;
+R_air = 286.9;
+T0 = 288.15;
+kb = 1;

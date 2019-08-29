@@ -8,7 +8,7 @@
 % Inertial Measurement Unit initialization file
 % Simulation based on MPU9250 (internal Pixhawk 1 IMU)
 %
-Ts         = 1e-3;          % Simulation time step 
+Ts         = 4e-3;          % Simulation time step 
 realSensorIMU = 1;          % Set this flag to 1 for real sensor simulation
                             % Bias, noise, scale factor, misalignment 
 %
@@ -133,3 +133,11 @@ mag_var = 0.01;                     % variance (all axis)
 %
 % Magnetometer full scale
 mag_fullscale = 4800e3;             % [nT]
+
+%% mio
+Ma = eye(3);
+Sa = eye(3);
+Mo_pos = eye(3);
+So_pos = eye(3);
+Mo_pqr = eye(3);
+So_pqr = eye(3);
