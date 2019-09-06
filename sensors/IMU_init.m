@@ -135,6 +135,25 @@ mag_var = 0.01;                     % variance (all axis)
 mag_fullscale = 4800e3;             % [nT]
 
 %% mio
+
+% Otus 
+velOtus_var = 0.01;
+
+Moxy = 0;                           % x-y body axis
+Moxz = 0;                           % x-z body axis    
+Moyx = Mgxy;                        % y-x body axis
+Moyz = 0;                           % y-z body axis
+Mozx = Mgxz;                        % z-x body axis
+Mozy = Mgyz;                        % z-y body axis
+Mo = [1     Moxy     Moxz;          % Misalignment matrix
+      Moyx   1       Moyz;
+      Mozx   Mozy     1];
+
+Sox_vel = 1;
+Soy_vel = 1;
+Soz_vel = 1;
+So_vel = diag([ Sox_vel; Soy_vel; Soz_vel ]);
+
 Ma = eye(3);
 Sa = eye(3);
 Mo_pos = eye(3);

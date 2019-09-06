@@ -45,5 +45,5 @@ legend('Actual trajectory','Waypoints')
 xlabel('$x [m]$');
 ylabel('$y [m]$');
 zlabel('$z [m]$');
-title('North-East-Down plot');
+title('xyz plot');
 view([45,30]);
